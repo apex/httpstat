@@ -58,6 +58,7 @@ func TestResponse_errors(t *testing.T) {
 	// TODO: mock all this stuff
 
 	t.Run("ssl", func(t *testing.T) {
+		t.SkipNow()
 		_, err := httpstat.Request("GET", "https://www.konbini.com", nil, nil)
 		assert.EqualError(t, err, "SSL cert has expired")
 	})
@@ -73,6 +74,7 @@ func TestResponse_errors(t *testing.T) {
 	})
 
 	t.Run("invalid cert 2", func(t *testing.T) {
+		t.SkipNow()
 		_, err := httpstat.Request("GET", "https://ec2-52-35-35-6.us-west-2.compute.amazonaws.com:8005/admin/", nil, nil)
 		assert.EqualError(t, err, "SSL cert signed by unknown authority")
 	})
